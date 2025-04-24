@@ -3,10 +3,11 @@ const cityService = require('../services/cityService');
 const weatherService = require('../services/weatherService');
 const pLimit = require('p-limit');
 
+
 const limit = pLimit(5); // Limiting requests count
 
 const startWeatherJob = () => {
-  cron.schedule('*/1 * * * *', async () => {
+  cron.schedule('*/10 * * * *', async () => {
     // schedule can be an env variable
     const cities = await cityService.getAllCities();
     
